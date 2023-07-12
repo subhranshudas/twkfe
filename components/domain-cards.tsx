@@ -31,7 +31,7 @@ function DomainCard({ title, icon, href  }: Omit<DomainProps, "description">) {
             aria-label={title}
             className="
                 group
-                flex flex-col justify-center items-center rounded-lg border p-4 gap-y-6 md:gap-y-8 shadow-lg
+                flex flex-col justify-center items-center rounded-lg border p-4 gap-y-6 shadow-lg
                 bg-gradient-to-t from-slate-100 via-slate-100 to-white
                 dark:shadow-none dark:bg-gradient-to-t dark:from-slate-950 dark:via-slate-900 dark:via-40% dark:to-gray-800
                 hover:scale-105 ease-in duration-200

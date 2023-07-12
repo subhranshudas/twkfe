@@ -18,36 +18,37 @@ export interface DomainProps {
   icon: any
 }
 
+
 export const domainsList: DomainProps[] = [
       {
         title: "artificial intelligence",
         href: "/ai",
         description: "",
-        icon: (props: any) => <BrainCircuit {...props} />
+        icon: BrainCircuit
       },
       {
         title: "edtech",
         href: "/edtech",
         description: "",
-        icon: (props: any) => <GraduationCap {...props} />
+        icon: GraduationCap
         
       },
       {
         title: "electric vehicles",
         href: "/ev",
         description: "",
-        icon: (props: any) => <MdOutlineElectricCar {...props} />
+        icon: MdOutlineElectricCar
       },
       {
         title: "agtech",
         href: "/agtech",
         description: "",
-        icon: (props: any) => <Sprout {...props} />        
+        icon: Sprout    
       },
       {
         title: "fintech",
         href: "/fintech",
         description: "",
-        icon: (props: any) => <BadgeDollarSign {...props} />    
+        icon: BadgeDollarSign
       },
     ]

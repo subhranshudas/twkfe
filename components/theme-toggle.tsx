@@ -38,3 +38,16 @@ export function ThemeToggle() {
     </DropdownMenu>
   )
 }
+
+export function FlatThemeToggle() {
+  const { setTheme } = useTheme()
+
+
+  return (
+    <div className="flex justify-center gap-x-2">
+      <Button variant="ghost" onClick={() => setTheme("light")}><Sun /></Button>
+      <Button variant="ghost" onClick={() => setTheme("dark")}><Moon /></Button>
+      <Button variant="outline" onClick={() => setTheme("system")}>System</Button>
+    </div>
+  )
+}
