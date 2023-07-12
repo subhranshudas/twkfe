@@ -8,8 +8,7 @@ import {
     BadgeDollarSign,
   } from 'lucide-react'
   
-// Custom SVG Icons
-import { ElectricCar } from '@/components/icons/electric-car'
+import { MdOutlineElectricCar } from "react-icons/md"
 
 
 
@@ -25,31 +24,31 @@ export const domainsList: DomainProps[] = [
         title: "artificial intelligence",
         href: "/ai",
         description: "",
-        icon: BrainCircuit
+        icon: (props: any) => <BrainCircuit {...props} />
       },
       {
         title: "edtech",
         href: "/edtech",
         description: "",
-        icon: GraduationCap
+        icon: (props: any) => <GraduationCap {...props} />
         
       },
       {
         title: "electric vehicles",
         href: "/ev",
         description: "",
-        icon: (props: any) => <ElectricCar {...props} /> // only Custom SVG Icons take svgcolor "prop"
+        icon: (props: any) => <MdOutlineElectricCar {...props} />
       },
       {
         title: "agtech",
         href: "/agtech",
         description: "",
-        icon: Sprout
+        icon: (props: any) => <Sprout {...props} />        
       },
       {
         title: "fintech",
         href: "/fintech",
         description: "",
-        icon: BadgeDollarSign
+        icon: (props: any) => <BadgeDollarSign {...props} />    
       },
     ]
