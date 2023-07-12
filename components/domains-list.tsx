@@ -1,6 +1,7 @@
 
 // Library SVG Icons
 import {
+    LucideIcon,
     BrainCircuit,
     GraduationCap,
     Sprout,
@@ -11,12 +12,15 @@ import {
 import { ElectricCar } from '@/components/icons/electric-car'
 
 
-export const domainsList: {
-    title: string;
-    href: string;
-    description: string;
-    icon: any
-  }[] = [
+
+export interface DomainProps {
+  title: string;
+  href: string;
+  description: string;
+  icon: LucideIcon
+}
+
+export const domainsList: DomainProps[] = [
       {
         title: "artificial intelligence",
         href: "/ai",

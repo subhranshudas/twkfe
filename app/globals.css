@@ -75,4 +75,9 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .page-header-background-gradient {
+    @apply bg-gradient-to-tl from-slate-100 via-slate-50 to-white
+    dark:bg-gradient-to-tl dark:from-slate-950 dark:via-slate-900 dark:to-gray-800
+  }
 }

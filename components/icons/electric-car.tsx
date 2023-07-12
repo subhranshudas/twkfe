@@ -1,7 +1,11 @@
 import React from "react";
 import { cn } from "@/lib/utils"
 
-export function ElectricCar({ size = 24, className = '' } : { size?: number, className?: string }) {
+export interface SvgIconProps  { size?: number, className?: string }
+
+export function ElectricCar(
+  { size = 24, className = '' } : SvgIconProps
+ ) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
