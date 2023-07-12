@@ -1,7 +1,6 @@
 
 // Library SVG Icons
 import {
-    LucideIcon,
     BrainCircuit,
     GraduationCap,
     Sprout,
@@ -16,7 +15,7 @@ export interface DomainProps {
   title: string;
   href: string;
   description: string;
-  icon: LucideIcon
+  icon: any
 }
 
 export const domainsList: DomainProps[] = [

@@ -39,7 +39,7 @@ function DomainCard({ title, icon, href  }: Omit<DomainProps, "description">) {
                 dark:hover:border-slate-400
             "
         >
-            <div className="p-2 border-2 border-slate-400">
+            <div className="p-2 border">
                 <DomainIcon className="w-12 h-12" />
             </div>
             
