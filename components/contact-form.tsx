@@ -1,11 +1,10 @@
 "use client"
 
-import Link from "next/link"
+import React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useFieldArray, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import * as z from "zod"
 
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -17,78 +16,97 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/components/ui/use-toast"
+import { Skeleton } from "@/components/ui/skeleton"
+
 
 const contactFormSchema = z.object({
   username: z
-    .string()
-    .min(2, {
-      message: "Username must be at least 2 characters.",
+    .string({
+      required_error: "Name is mandatory",
     })
-    .max(30, {
-      message: "Username must not be longer than 30 characters.",
+    .min(3, {
+      message: "Name must be at least 3 characters.",
+    })
+    .max(50, {
+      message: "Name must not be longer than 50 characters.",
     }),
   email: z
     .string({
-      required_error: "Please select an email to display.",
+      required_error: "Email is mandatory",
     })
     .email(),
-  bio: z.string().max(160).min(4),
-  urls: z
-    .array(
-      z.object({
-        value: z.string().url({ message: "Please enter a valid URL." }),
-      })
-    )
-    .optional(),
+  message: z.string({
+    required_error: "Message is mandatory",
+  })
+  .max(1000, {
+    message: "Message must not be longer than 1000 characters.",
+  })
+  .min(20,  {
+    message: "Message must minimum of 20 characters.",
+  }),
 })
 
 type ContactFormValues = z.infer<typeof contactFormSchema>
 
-// This can come from your database or API.
 const defaultValues: Partial<ContactFormValues> = {
-  bio: "I own a computer.",
-  urls: [
-    { value: "https://shadcn.com" },
-    { value: "http://twitter.com/shadcn" },
-  ],
-}
-
-function Required() {
-  return (
-    <span className="relative top-1 align-super">*</span>
-  )
+  username: '',
+  email: '',
+  message: ''
 }
 
 export function ContactForm() {
+
+  const [isLoading, setIsLoading] = React.useState<boolean>(false)
+
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues,
-    mode: "onChange",
+    mode: "onSubmit",
   })
 
-  const { fields, append } = useFieldArray({
-    name: "urls",
-    control: form.control,
-  })
+  async function onSubmit(data: ContactFormValues) {
+    try {
+      setIsLoading(true)
 
-  function onSubmit(data: ContactFormValues) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    })
+      await delay(3000)
+
+      console.log(JSON.stringify(data, null, 2))
+
+      toast({
+        variant: "success",
+        title: "Email Sent",
+        description: (
+          <div className="flex justify-center items-center">
+            <p>Thank you for your email!</p>
+          </div>
+        ),
+      })
+
+      form.reset(defaultValues)
+    } catch (err) {
+
+      toast({
+        variant: "destructive",
+        title: "Email Not Sent",
+        description: (
+          <div className="flex flex-col justify-center items-center">
+            <p>Something went wrong!</p>
+            <p>Please try again later.</p>
+          </div>
+        ),
+      })
+
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  function resetContactForm(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault()
+    form.reset(defaultValues)
   }
 
   return (
@@ -99,14 +117,10 @@ export function ContactForm() {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel className="text-lg">Name</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input type="text" placeholder="Your Name" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name. It can be your real name or a
-                pseudonym. You can only change this once every 30 days.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -116,82 +130,77 @@ export function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a verified email to display" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="m@example.com">m@example.com</SelectItem>
-                  <SelectItem value="m@google.com">m@google.com</SelectItem>
-                  <SelectItem value="m@support.com">m@support.com</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormDescription>
-                You can manage verified email addresses in your{" "}
-                <Link href="/examples/forms">email settings</Link>.
-              </FormDescription>
+              <FormLabel className="text-lg">Email</FormLabel>
+              <FormControl>
+                <Input type="email" placeholder="Your Email" {...field} />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         <FormField
           control={form.control}
-          name="bio"
+          name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Bio</FormLabel>
+              <FormLabel className="text-lg">Message</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Tell us a little bit about yourself"
-                  className="resize-none"
+                  placeholder="Can Tekwerke help me build a rocket?"
                   {...field}
                 />
               </FormControl>
-              <FormDescription>
-                You can <span>@mention</span> other users and organizations to
-                link to them.
+              <FormDescription className="text-xs">
+                (max 1000 chars)
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <div>
-          {fields.map((field, index) => (
-            <FormField
-              control={form.control}
-              key={field.id}
-              name={`urls.${index}.value`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className={cn(index !== 0 && "sr-only")}>
-                    URLs
-                  </FormLabel>
-                  <FormDescription className={cn(index !== 0 && "sr-only")}>
-                    Add links to your website, blog, or social media contacts.
-                  </FormDescription>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          ))}
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            className="mt-2"
-            onClick={() => append({ value: "" })}
-          >
-            Add URL
-          </Button>
+
+        <div className="flex flex-col gap-y-2 md:gap-y-0 md:flex-row md:justify-end md:gap-x-2">
+          <Button variant="outline" onClick={resetContactForm}>Reset</Button>
+          <Button type="submit">Submit</Button>
         </div>
-        <Button type="submit">Submit</Button>
+        
       </form>
+      
+      <ContactFormLoader show={isLoading} />
     </Form>
   )
+}
+
+function ContactFormLoader({ show } : { show: boolean }) {
+  if (!show) return null
+
+  return (
+    <div className="bg-background rounded-xl absolute top-0 left-0 h-full w-full flex flex-col gap-y-2 px-12 pt-12">    
+      <Skeleton className="h-4 w-[200px]" />
+      <Skeleton className="h-8 w-full" />
+
+      <div className="h-6"></div>
+
+      <Skeleton className="h-4 w-[200px]" />
+      <Skeleton className="h-8 w-full" />
+
+      <div className="h-6"></div>
+
+      <Skeleton className="h-4 w-[200px]" />
+      <Skeleton className="h-20 w-full" />
+
+      <div className="h-6"></div>
+
+      <div className="flex justify-end mt-8">
+        <Skeleton className="h-8 w-[100px]" />
+        <div className="h-6 w-2"></div>
+        <Skeleton className="h-8 w-[100px]" />
+      </div>
+    </div>
+  )
+}
+
+async function delay(ms: number) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms)
+  })
 }

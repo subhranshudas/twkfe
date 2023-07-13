@@ -30,10 +30,10 @@ export default function Home() {
       </section>
 
       <section className="container mx-auto mt-16 mb-24">
-        <h2 className="text-5xl font-bold text-center" id="domains">Our Domains</h2>
+        <h2 className="text-4xl md:text-5xl font-bold md:font-extrabold text-center" id="domains">Our Domains</h2>
 
         <div className="mt-12">
-          <p className="text-lg md:text-xl px-12 md:px-0 mt-12 mb-4 text-center">We have experts from various domains.</p>
+          <p className="text-lg md:text-xl px-12 md:px-0 mb-4 text-center">We have experts from various domains.</p>
           <p className="text-xs md:text-base text-center my-2 mb-12">Please click on a domain to see our offerings</p>
           <DomainCards cards={domainsList} />
         </div>
