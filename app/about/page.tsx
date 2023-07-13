@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { PageHeader } from '@/components/page-header'
+
 export const metadata: Metadata = {
     title: 'Tekwerke | About',
     description: 'Tekwerke - Hire Experts',
@@ -10,14 +12,10 @@ export const metadata: Metadata = {
 export default function AboutPage() {
     return (
         <div className="w-full">
-            <section className="w-full page-header-background-gradient py-12">
-                <div className="container">
-                    <h2 className="text-5xl font-bold text-center">About</h2>
-                </div>
-            </section>
+           <PageHeader header='About' />
 
             <section className="container flex flex-col gap-y-8 w-full lg:w-3/5 pt-12 pb-16 md:pb-32">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni beatae tempora quasi repellendus nostrum velit error deleniti excepturi, obcaecati sint debitis architecto molestias aspernatur unde, exercitationem quaerat fugiat, nulla earumt eius.</p>
+                <p className='text-2xl'>Why we built Tekwerke?</p>
 
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni beatae tempora quasi repellendus nostrum velit error deleniti excepturi, obcaecati sint debitis architecto molestias aspernatur unde, exercitationem quaerat fugiat, nulla earumt eius.</p>
             </section>
