@@ -36,7 +36,7 @@ export function SearchBox() {
 
     return (
         <div className="w-full my-12 p-2">
-            <p className="text-xs text-center my-2 mb-4">
+            <p className="text-xs md:text-sm text-center my-2 mb-4">
                 please choose from our domains and search for your topic
             </p>
 

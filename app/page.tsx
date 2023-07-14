@@ -34,7 +34,7 @@ export default function Home() {
 
         <div className="py-12 w-full">
           <p className="text-lg md:text-xl px-12 md:px-0 mb-4 text-center">We have experts from various domains.</p>
-          <p className="text-xs md:text-base text-center my-2 mb-12">Please click on a domain to see our offerings</p>
+          <p className="text-xs md:text-sm text-center my-2 mb-12">Please click on a domain to see our offerings</p>
           <DomainCards cards={domainsList} />
         </div>
         

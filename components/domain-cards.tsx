@@ -13,7 +13,7 @@ export function DomainCards({
  cards
 }: DomainCardsProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-12">
         {cards.map(({ title, href, icon }) =>  
             <DomainCard key={title} title={title} icon={icon} href={href} />            
         )}
@@ -31,23 +31,26 @@ function DomainCard({ title, icon, href  }: Omit<DomainProps, "description">) {
             aria-label={title}
             className="
                 group
-                flex flex-col justify-center items-center rounded-lg border p-4 gap-y-6 shadow-lg
-                bg-gradient-to-t from-slate-100 via-slate-100 to-white
-                dark:shadow-none dark:bg-gradient-to-t dark:from-slate-950 dark:via-slate-900 dark:via-40% dark:to-gray-800
+                flex flex-col justify-center items-center rounded-lg border p-4 gap-y-6 md:gap-y-10 shadow-lg
                 hover:scale-105 transition ease-in duration-200
-                hover:bg-gradient-to-b hover:shadow
                 dark:hover:border-slate-400
+
+                bg-gradient-to-b from-white via-slate-100 via-60% to-slate-100
+                hover:bg-gradient-to-t hover:from-white hover:via-slate-100 hover:via-30% hover:to-slate-100
+
+                dark:bg-gradient-to-b dark:from-slate-800 dark:via-slate-800 dark:via-50% dark:to-slate-600
+                dark:hover:bg-gradient-to-t dark:hover:from-slate-800 dark:hover:via-slate-800 dark:hover:via-30%  dark:hover:to-slate-600
             "
         >
             <div
                 className="
-                    p-2 rounded border 
-                    border-slate-300 dark:border-slate-500
-                    group-hover:border-slate-400 dark:group-hover:border-slate-300">
+                    py-2 px-12 rounded border 
+                    border-slate-300 group-hover:border-slate-400
+                    dark:border-slate-700 dark:group-hover:border-slate-300">
                 <DomainIcon className="w-12 h-12" />
             </div>
             
-            <h3 className="text-xl">{title}</h3>
+            <h3 className="text-xl group-hover:font-semibold">{title}</h3>
         </Link>
        
     )
