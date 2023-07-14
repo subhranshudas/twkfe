@@ -38,8 +38,8 @@ function DomainCard({ title, icon, href  }: Omit<DomainProps, "description">) {
                 bg-gradient-to-b from-white via-slate-100 via-60% to-slate-100
                 hover:bg-gradient-to-t hover:from-white hover:via-slate-100 hover:via-30% hover:to-slate-100
 
-                dark:bg-gradient-to-b dark:from-slate-800 dark:via-slate-800 dark:via-50% dark:to-slate-600
-                dark:hover:bg-gradient-to-t dark:hover:from-slate-800 dark:hover:via-slate-800 dark:hover:via-30%  dark:hover:to-slate-600
+                dark:bg-gradient-to-t dark:from-slate-900 dark:via-slate-900 dark:to-slate-950
+                dark:hover:bg-gradient-to-b dark:hover:from-slate-900 dark:hover:via-slate-900 dark:hover:to-slate-950
             "
         >
             <div
