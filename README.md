@@ -8,8 +8,6 @@ npm run dev
 
 
 ### Todos
-- Login Form UI with zod
-- Signup Form UI with zod
 - Domain Specific Page with filters & search results treatment
 - Specific Product Page UI - basic
 - Profile Page

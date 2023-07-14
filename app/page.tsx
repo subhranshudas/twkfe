@@ -29,10 +29,10 @@ export default function Home() {
    
       </section>
 
-      <section className="container mx-auto mt-16 mb-24">
+      <section className="container mx-auto mt-16 mb-24 md:mb-32">
         <h2 className="text-4xl md:text-5xl font-bold md:font-extrabold text-center" id="domains">Our Domains</h2>
 
-        <div className="mt-12">
+        <div className="py-12 w-full">
           <p className="text-lg md:text-xl px-12 md:px-0 mb-4 text-center">We have experts from various domains.</p>
           <p className="text-xs md:text-base text-center my-2 mb-12">Please click on a domain to see our offerings</p>
           <DomainCards cards={domainsList} />
