@@ -150,7 +150,7 @@ export function LoginForm() {
 
             <div className="flex flex-col gap-y-2 md:gap-y-0 md:flex-row justify-end md:gap-x-2">
                 <Button variant="outline" onClick={resetContactForm}>Reset</Button>
-                <Button type="submit">Login</Button>
+                <Button type="submit">Login with Email</Button>
             </div>
             
         </form>
