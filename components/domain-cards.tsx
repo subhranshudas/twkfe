@@ -33,13 +33,13 @@ function DomainCard({ title, icon, href  }: Omit<DomainProps, "description">) {
                 group
                 flex flex-col justify-center items-center rounded-lg border p-4 gap-y-6 md:gap-y-10 shadow-lg
                 hover:scale-105 transition ease-in duration-200
-                
+                hover:border-ring hover:border-2
+                dark:hover:border-slate-400
                 bg-gradient-to-b from-white via-slate-50 to-slate-100
                 dark:bg-gradient-to-t dark:from-slate-900 dark:via-slate-900 dark:to-slate-950
             "
         >
-            <div
-                className="py-2 px-12">
+            <div className="py-2 px-12 border group-hover:border-ring">
                 <DomainIcon className="w-12 h-12 text-muted-foreground group-hover:text-foreground" />
             </div>
             
