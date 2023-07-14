@@ -59,8 +59,8 @@ export function Header() {
                     <TWNavigationMenu />
 
                     <ThemeToggle />                    
-                    <Button variant="outline"><Link href="/signup">Signup</Link></Button>
-                    <Button><Link href="/login">Login</Link></Button>
+                    <Button variant="outline" asChild><Link href="/signup">Signup</Link></Button>
+                    <Button asChild><Link href="/login">Login</Link></Button>
                 </nav>
 
                 <MobileNavMenu />
@@ -195,8 +195,8 @@ function MobileNavMenu() {
 
           <div className="h-56 flex flex-col gap-y-2">
             <FlatThemeToggle />                    
-            <Button variant="outline"><Link href="/signup">Signup</Link></Button>
-            <Button><Link href="/login">Login</Link></Button>
+            <Button variant="outline" asChild><Link href="/signup">Signup</Link></Button>
+            <Button asChild><Link href="/login">Login</Link></Button>
           </div>
         </div>
 
