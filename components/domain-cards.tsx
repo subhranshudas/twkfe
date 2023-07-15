@@ -39,7 +39,7 @@ function DomainCard({ title, icon, href  }: Omit<DomainProps, "description">) {
                 dark:bg-gradient-to-t dark:from-slate-900 dark:via-slate-900 dark:to-slate-950
             "
         >
-            <div className="py-2 px-12">
+            <div className="p-2 rounded border dark:border-slate-800">
                 <DomainIcon className="w-12 h-12 text-muted-foreground group-hover:text-foreground" />
             </div>
             
