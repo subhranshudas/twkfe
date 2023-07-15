@@ -14,8 +14,8 @@ export function DomainCards({
 }: DomainCardsProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-12">
-        {cards.map(({ title, href, icon }) =>  
-            <DomainCard key={title} title={title} icon={icon} href={href} />            
+        {cards.map(({ id, title, href, icon }) =>  
+            <DomainCard id={id} key={title} title={title} icon={icon} href={href} />            
         )}
     </div>
   )
