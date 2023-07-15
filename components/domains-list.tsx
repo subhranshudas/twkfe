@@ -12,6 +12,7 @@ import { MdOutlineElectricCar } from "react-icons/md"
 
 
 export interface DomainProps {
+  id: string,
   title: string;
   href: string;
   description: string;
@@ -21,12 +22,14 @@ export interface DomainProps {
 
 export const domainsList: DomainProps[] = [
       {
+        id: "ai",
         title: "artificial intelligence",
         href: "/ai",
         description: "",
         icon: BrainCircuit
       },
       {
+        id: "edtech",
         title: "edtech",
         href: "/edtech",
         description: "",
@@ -34,18 +37,21 @@ export const domainsList: DomainProps[] = [
         
       },
       {
+        id: "ev",
         title: "electric vehicles",
         href: "/ev",
         description: "",
         icon: MdOutlineElectricCar
       },
       {
+        id: "agtech",
         title: "agtech",
         href: "/agtech",
         description: "",
         icon: Sprout    
       },
       {
+        id: "fintech",
         title: "fintech",
         href: "/fintech",
         description: "",
