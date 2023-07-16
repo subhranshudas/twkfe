@@ -13,7 +13,7 @@ export function DomainCards({
  cards
 }: DomainCardsProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
         {cards.map(({ id, title, href, icon }) =>  
             <DomainCard id={id} key={title} title={title} icon={icon} href={href} />            
         )}
@@ -31,9 +31,9 @@ function DomainCard({ title, icon, href  }: Omit<DomainProps, "description">) {
             aria-label={title}
             className="
                 group
-                flex flex-col justify-center items-center rounded-lg border p-4 gap-y-6 md:gap-y-8 shadow-lg
+                flex flex-col justify-center items-center rounded-lg border p-4 gap-y-6 md:gap-y-8
                 hover:scale-105 transition ease-in duration-200
-                hover:border-ring hover:border-2
+                hover:shadow-lg
                 dark:hover:border-slate-400
                 bg-gradient-to-b from-white via-slate-50 to-slate-100
                 dark:bg-gradient-to-t dark:from-slate-900 dark:via-slate-900 dark:to-slate-950
