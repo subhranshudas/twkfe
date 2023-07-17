@@ -13,6 +13,7 @@ npm run dev
 - Profile Page
 - Landing Page Animations?
 - Tekwerke Logo?, fav icon?
+- Add Keywords in the Metadata object for SEO purposes.
 
 
 
