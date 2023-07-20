@@ -115,8 +115,9 @@ export function PageSearch(props: PageSearchProps) {
                         <span className="font-bold">Filters</span>
                     </Button>
 
-                    <div className="hidden md:flex pl-1">
+                    <div className="hidden md:flex px-1 justify-between items-center">
                         <span className="font-bold">Filters</span>
+                        <span className="text-xs cursor-pointer text-blue-500">reset</span>
                     </div>
 
                     <div className="hidden md:flex flex-col px-1">
